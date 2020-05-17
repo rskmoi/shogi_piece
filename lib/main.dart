@@ -49,7 +49,8 @@ class _State extends State<Shogi> {
         appBar: AppBar(
           title: Text('将棋駒デザイン'),
         ),
-        body: Column(
+        body: SingleChildScrollView( 
+        child:Column(
           children: <Widget>[
             SelectableText(
               """
@@ -117,11 +118,13 @@ class _State extends State<Shogi> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 CustomPaint(
-                  size: Size(500, 300), //child:や親ウィジェットがない場合はここでサイズを指定できる
+                  size: Size(500, 500), //child:や親ウィジェットがない場合はここでサイズを指定できる
                   painter: _MyPainter(this.coord_top, this.coord_middle_l, this.coord_middle_r, this.coord_bottom_l, this.coord_bottom_r, this.bottom_length
                 ),
               ),
-              Column(children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
                 SizedBox(
                   width: 500, 
                   child: SelectableText(
@@ -167,6 +170,7 @@ class _State extends State<Shogi> {
 
         ),
       ),
+    )
     );
   }
 }
